@@ -1,7 +1,6 @@
 # 🐾 Kotaro the Shiba | Developer Portfolio
 
 [![Code Style: Google](https://img.shields.io/badge/code%20style-google-blue.svg)](https://google.github.io/styleguide/jsguide.html)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
 A high-performance, Shiba-themed developer portfolio built with a focus on clean architecture, smooth animations, and interactive user experience.
@@ -111,6 +110,20 @@ This project is dedicated to **Kotaro**, my beloved Shiba Inu.
 While I handled the syntax and logic, Kotaro provided the essential "emotional debugging" and reminded me to step away from the screen for fresh air. This portfolio is as much her work as it is mine.
 
 *Thank you, Kotaro, for being the best partner a developer could ask for.* 🐾
+
+---
+
+## 📜 License & Copyright
+
+**Copyright (c) 2026 kotaharus**
+
+All rights reserved. 
+
+The source code, logic, design, and all visual assets (including images and animations) contained within this repository are the exclusive property of the author. This project is made public strictly for **portfolio review and recruitment purposes**. 
+
+* **Prohibited:** Any unauthorized copying, redistribution, modification, or commercial use of this codebase or its design is strictly prohibited.
+
+* **Permitted:** Reviewing the code for evaluation purposes and learning from the architectural patterns described.
 
 ---
 
