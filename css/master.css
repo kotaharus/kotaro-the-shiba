@@ -306,7 +306,7 @@ body {
 .p-hero {
   align-items: center;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('../img/hero.png') center/cover no-repeat;
+    url('../img/hero.webp') center/cover no-repeat;
   color: var(--white);
   display: flex;
   height: 100vh;
