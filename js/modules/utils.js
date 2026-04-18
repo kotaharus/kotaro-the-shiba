@@ -22,3 +22,15 @@ export async function loadComponent(containerId, componentPath) {
     console.error(`Failed to load component [${componentPath}]:`, error);
   }
 }
+
+/**
+ * Updates the text content of the year display element to the current year.
+ * @param {string} elementId - The ID of the element to update.
+ * @returns {void}
+ */
+export function updateCopyrightYear(elementId = 'current-year') {
+  const yearElement = document.getElementById(elementId);
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear().toString();
+  }
+}
