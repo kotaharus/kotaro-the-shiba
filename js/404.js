@@ -6,8 +6,9 @@
  * @author @kotaharus
  */
 
-import { loadComponent } from './modules/utils.js';
+import { loadComponent, updateCopyrightYear } from './modules/utils.js'; // 追加
 import { initNavigation } from './modules/navigation.js';
+
 
 /* ==========================================================================
    INTERACTIVE LOGIC FUNCTIONS
@@ -162,6 +163,9 @@ async function bootstrap404() {
       loadComponent('main-footer', 'components/footer.html')
     ]);
 
+    // フッター読み込み完了後に実行
+    updateCopyrightYear();
+    
     // Initialize interactive logic
     initNavigation();
     initKonamiCode();

@@ -3,7 +3,7 @@
  * Ensures components are loaded before initializing UI logic.
  * @author @kotaharus
  */
-import { loadComponent } from './modules/utils.js';
+import { loadComponent, updateCopyrightYear } from './modules/utils.js';
 import { initNavigation } from './modules/navigation.js';
 import { initScrollReveal } from './modules/ui-observer.js';
 import { initFormHandling } from './modules/form.js';
@@ -16,6 +16,9 @@ async function bootstrap() {
       loadComponent('main-footer', 'components/footer.html')
     ]);
 
+    // フッター読み込み完了後に実行
+    updateCopyrightYear();
+    
     // 2. Initialize modules only after the DOM is ready
     initNavigation();    // This needs the header links
     initScrollReveal();  // This handles the reveal animations
