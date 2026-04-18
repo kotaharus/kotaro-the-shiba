@@ -1,5 +1,5 @@
 /**
- * @fileoverview Form module handles contact form submissions and terminal feedback.
+ * @file Form module handles contact form submissions and terminal feedback.
  * Includes interactive animations and accessibility notifications.
  * @package
  */
@@ -7,7 +7,6 @@ import { triggerSignatureAnimation } from './animations.js';
 
 /**
  * Initializes form submission handling and terminal feedback logic.
- * @export
  * @returns {void}
  */
 export function initFormHandling() {
