@@ -115,15 +115,21 @@ While I handled the syntax and logic, Kotaro provided the essential "emotional d
 
 ## 📜 License & Copyright
 
-**Copyright (c) 2026 kotaharus**
+This project is licensed under the terms specified in the [LICENSE](./LICENSE) file.
+
+**Copyright (c) @kotaharus**
 
 All rights reserved. 
 
 The source code, logic, design, and all visual assets (including images and animations) contained within this repository are the exclusive property of the author. This project is made public strictly for **portfolio review and recruitment purposes**. 
 
-* **Prohibited:** Any unauthorized copying, redistribution, modification, or commercial use of this codebase or its design is strictly prohibited.
+### 🚫 Prohibited Actions
+- **No Redistribution:** Copying or redistributing the source code in this repository is strictly prohibited.
+- **Academic Integrity:** Use of this code for school assignments, bootcamps, or certifications is not permitted.
+- **Commercial Use:** Any commercial use of the assets or logic within this project is forbidden.
 
-* **Permitted:** Reviewing the code for evaluation purposes and learning from the architectural patterns described.
+### ✅ Permitted
+- Reviewing the code for evaluation purposes and learning from the architectural patterns described.
 
 ---
 
