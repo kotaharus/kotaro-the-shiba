@@ -196,6 +196,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function createFootprint(x, y, rotation, index) {
     const footprint = document.createElement('div');
     footprint.className = 'u-footprint';
+    // Hide from screen readers
+    footprint.setAttribute('aria-hidden', 'true');
     footprint.innerHTML = '<i class="fa-solid fa-paw"></i>';
     footprint.style.left = `${x}px`;
     footprint.style.top = `${y}px`;
@@ -212,6 +214,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function createTerminalUI() {
     const div = document.createElement('div');
     div.className = 'c-terminal';
+    // Attribute to notify user of log updates
+    div.setAttribute('role', 'status');
+    div.setAttribute('aria-live', 'polite');
     div.innerHTML = `
       <div class="c-terminal__header">🐾 KOTARO-OS v1.0.2</div>
       <div class="c-terminal__log"></div>
