@@ -33,6 +33,8 @@ jobs:
     needs: lint # Only run if the 'lint' job passes successfully
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
