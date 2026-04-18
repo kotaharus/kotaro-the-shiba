@@ -1,5 +1,5 @@
 <!-- 
-  @fileoverview 404 Error Page Template for Kotaro the Shiba.
+  @file 404 Error Page Template for Kotaro the Shiba.
   Maintains brand consistency while providing playful feedback and easter eggs.
   Developed by: @kotaharus 
 -->
@@ -33,18 +33,7 @@
 <body class="l-body-column">
 
     <!-- HEADER COMPONENT: Synchronized navigation with home page -->
-    <header class="c-header" id="main-header">
-        <nav class="c-nav">
-            <div class="c-nav__logo">Kotaro the Shiba</div>
-            <ul class="c-nav__list">
-                <li><a href="index.html#home" class="c-nav__link">Home</a></li>
-                <li><a href="index.html#about" class="c-nav__link">About</a></li>
-                <li><a href="index.html#skills" class="c-nav__link">Skills</a></li>
-                <li><a href="index.html#gallery" class="c-nav__link">Works</a></li>
-                <li><a href="index.html#contact" class="c-nav__link">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header class="c-header" id="main-header"></header>
 
     <main class="p-error">   
         <!-- Background Decoration: Semantic watermark for error context -->
@@ -71,17 +60,7 @@
     </main>
 
     <!-- FOOTER COMPONENT: Standardized branding and secret interaction trigger -->
-    <footer class="c-footer">
-        <div class="l-container">
-            <p>&copy; 2026 @kotaharus with Kotaro the Shiba. All rights reserved.</p>
-            <p class="c-footer__credits">
-                Built with Clean Code & High-Quality Treats.
-                <a href="#" class="p-error__easter-egg-trigger" id="easter-egg-trigger" title="Bark?">
-                    <i class="fa-solid fa-bone"></i>
-                </a>
-            </p>
-        </div>
-    </footer>
+  <footer class="c-footer" id="main-footer"></footer>
 
     <!-- EXTERNAL LOGIC LAYER: Error-specific interactions and animations -->
     <script type="module" src="js/404.js"></script>

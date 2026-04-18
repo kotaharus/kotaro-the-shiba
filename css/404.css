@@ -103,6 +103,14 @@
     margin-right: 8px;
 }
 
+/**
+ * Hide specific navigation elements for the 404 page 
+ * to maintain contextual relevance.
+ */
+.js-nav-bone {
+  display: none !important;
+}
+
 /* ==========================================================================
    EASTER EGG ELEMENTS
    Hidden interactive elements for user delight.

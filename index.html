@@ -1,5 +1,5 @@
 <!--
-  @fileoverview Kotaro the Shiba Portfolio - Main Landing Page.
+  @file Kotaro the Shiba Portfolio - Main Landing Page.
   Architecture: Follows a component-based structure using BEM naming conventions.
   Developed by: @kotaharus
 -->
@@ -33,23 +33,7 @@
 <body>
 
   <!-- HEADER COMPONENT: Sticky navigation with reactive background blur and scroll effects -->
-  <header class="c-header" id="main-header">
-    <nav class="c-nav">
-      <div class="c-nav__logo">Kotaro the Shiba</div>
-      <ul class="c-nav__list">
-        <li>
-          <a href="404.html" title="Treats" class="c-nav__link c-nav__link--bone">
-            <i class="fa-solid fa-bone"></i>
-          </a>
-        </li>
-        <li><a href="#home" class="c-nav__link">Home</a></li>
-        <li><a href="#about" class="c-nav__link">About</a></li>
-        <li><a href="#skills" class="c-nav__link">Skills</a></li>
-        <li><a href="#gallery" class="c-nav__link">Works</a></li>
-        <li><a href="#contact" class="c-nav__link">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <header class="c-header" id="main-header"></header>
 
   <main>
     <!-- HERO SECTION: Primary landing view with "digital frisbee" easter egg link -->
@@ -192,12 +176,7 @@
   </main>
 
   <!-- GLOBAL FOOTER: Standardized legal credits and ownership information -->
-  <footer class="c-footer">
-    <div class="l-container">
-      <p>&copy; 2026 @kotaharus with Kotaro the Shiba. All rights reserved.</p>
-      <p class="c-footer__credits">Built with Clean Code & High-Quality Treats.</p>
-    </div>
-  </footer>
+  <footer class="c-footer" id="main-footer"></footer>
 
   <!-- CORE LOGIC: Deferred script loading for optimized Time to Interactive (TTI) and performance metrics -->
   <script type="module" src="js/main.js"></script>
