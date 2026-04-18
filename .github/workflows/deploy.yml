@@ -1,0 +1,44 @@
+# @file GitHub Actions Workflow for CI/CD Pipeline
+# Handles automated linting and deployment to GitHub Pages.
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ] # Triggers on push to the main branch
+  pull_request:
+    branches: [ main ] # Triggers on PRs to ensure quality before merging
+
+jobs:
+  # JOB 1: Code Quality Check (Continuous Integration)
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run ESLint
+        run: npm run lint
+
+  # JOB 2: Automated Deployment (Continuous Deployment)
+  deploy:
+    needs: lint # Only run if the 'lint' job passes successfully
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./ # Publish the root directory

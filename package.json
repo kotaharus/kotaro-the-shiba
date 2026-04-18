@@ -1,0 +1,15 @@
+{
+  "name": "shiba-portfolio",
+  "version": "1.0.0",
+  "description": "Kotaro the Shiba Software Engineer Portfolio",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint js/**/*.js",
+    "format": "prettier --write js/**/*.js"
+  },
+  "devDependencies": {
+    "eslint": "^8.x",
+    "prettier": "^3.x",
+    "eslint-plugin-jsdoc": "^46.x"
+  }
+}
