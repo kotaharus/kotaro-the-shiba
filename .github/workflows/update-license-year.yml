@@ -1,0 +1,43 @@
+name: Update License Year
+
+on:
+  schedule:
+    # Runs at 00:00 UTC on January 1st every year
+    - cron: '0 0 1 1 *'
+  # Allows manual execution from the Actions tab
+  workflow_dispatch:
+
+permissions:
+  # Required to commit and push changes back to the repository
+  contents: write
+
+jobs:
+  update-license:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update year in LICENSE file
+        run: |
+          # Get the current year from the system
+          CURRENT_YEAR=$(date +%Y)
+          
+          # Use sed to update the year in the LICENSE file
+          sed -i -E "s/(Copyright \(c\) [0-9]{4}-)[0-9]{4}/\1$CURRENT_YEAR/" LICENSE
+          sed -i -E "s/(Copyright \(c\) )[0-9]{4}$/\1$CURRENT_YEAR/" LICENSE
+
+      - name: Commit and Push changes
+        run: |
+          # Configure git with the official GitHub Actions bot identity
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Check for changes in the LICENSE file before committing
+          if ! git diff --exit-code LICENSE; then
+            git add LICENSE
+            git commit -m "chore: update license year to $(date +%Y)"
+            git push
+          else
+            echo "No changes to the license year were found. Skipping commit."
+          fi
