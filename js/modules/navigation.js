@@ -1,12 +1,11 @@
 /**
- * @fileoverview Navigation module handles header behavior and smooth scrolling.
+ * @file Navigation module handles header behavior and smooth scrolling.
  * @package
  */
 
 /**
  * Initializes all navigation-related features for the portfolio.
  * This includes sticky header effects and smooth internal anchor links.
- * @export
  * @returns {void}
  */
 export function initNavigation() {
@@ -47,7 +46,7 @@ function setupHeaderScroll(header) {
  * @returns {void}
  */
 function setupSmoothScroll() {
-  /** @type {NodeListOf<HTMLAnchorElement>} */
+  /** @type {NodeList} */
   const internalLinks = document.querySelectorAll('a[href^="#"]');
 
   internalLinks.forEach((anchor) => {
@@ -60,7 +59,7 @@ function setupSmoothScroll() {
         const target = document.querySelector(href);
 
         if (target) {
-          /** @const {number} headerOffset - Standard height of the sticky header */
+          /** @constant {number} headerOffset - Standard height of the sticky header */
           const headerOffset = 80;
           const elementPosition = target.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.scrollY - headerOffset;

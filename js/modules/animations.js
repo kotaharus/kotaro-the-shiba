@@ -1,19 +1,19 @@
 /**
- * @fileoverview Animations module handles mathematical pathfinding and decorative effects.
+ * @file Animations module handles mathematical pathfinding and decorative effects.
  * Specifically manages the cubic Bezier-based paw print "signature" animation.
  * @package
  */
 
 /**
  * Coordinates for a single point in 2D space.
- * @typedef {Object} Point
+ * @typedef {object} Point
  * @property {number} x - Horizontal coordinate.
  * @property {number} y - Vertical coordinate.
  */
 
 /**
  * Control points defining a cubic Bezier curve segment.
- * @typedef {Object} BezierSegment
+ * @typedef {object} BezierSegment
  * @property {Point} p0 - Start point.
  * @property {Point} p1 - Control point 1.
  * @property {Point} p2 - Control point 2.
@@ -23,7 +23,6 @@
 /**
  * Triggers the signature paw print animation across the screen.
  * Uses multiple Bezier segments for organic movement.
- * @export
  * @returns {Promise<void>} Resolves when the full animation sequence completes.
  */
 export async function triggerSignatureAnimation() {

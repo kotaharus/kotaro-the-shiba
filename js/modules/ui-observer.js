@@ -1,5 +1,5 @@
 /**
- * @fileoverview UI Observer module handles scroll-triggered animations.
+ * @file UI Observer module handles scroll-triggered animations.
  * Uses Intersection Observer for performance-efficient reveal effects.
  * @package
  */
@@ -7,11 +7,10 @@
 /**
  * Initializes the intersection observer for scroll-reveal animations.
  * Targets elements with the '.u-reveal' class and specific skill bar fills.
- * @export
  * @returns {void}
  */
 export function initScrollReveal() {
-  /** @type {NodeListOf<HTMLElement>} */
+  /** @type {NodeList} */
   const revealElements = document.querySelectorAll('.u-reveal');
 
   if (revealElements.length === 0) return;
@@ -48,7 +47,7 @@ export function initScrollReveal() {
  * @returns {void}
  */
 function animateSkillBars(container) {
-  /** @type {NodeListOf<HTMLElement>} */
+  /** @type {NodeList} */
   const bars = container.querySelectorAll('.c-progress__fill');
   bars.forEach((bar) => {
     /** @type {string|null} */
