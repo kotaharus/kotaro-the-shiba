@@ -1,45 +1,20 @@
 /**
- * @fileoverview Logic for the 404 Error page, including interactive easter eggs.
- * Features: Barking popups, bone rain effect, and secret Konami code activation.
- * Follows Google JavaScript Style Guide standards for documentation and scoping.
- * @author @kotaharus
+ * @fileoverview Logic for the 404 Error page of Kotaro the Shiba's portfolio.
+ * Manages content entry animations, interactive barking popups, and easter eggs
+ * like the bone rain triggered by the Konami Code.
+ * @package
  */
 
+/**
+ * Initializes all interactive 404 page features upon DOM completion.
+ * @listens document#DOMContentLoaded
+ */
 document.addEventListener('DOMContentLoaded', () => {
     
-    // UI Element Selectors
-    const header = document.getElementById('main-header');
+    /** * @type {HTMLElement|null}
+     * Target element for the initial fade-in/slide-up reveal effect.
+     */
     const errorReveal = document.getElementById('error-reveal');
-    const watermark = document.getElementById('watermark');
-    const eggTrigger = document.getElementById('easter-egg-trigger');
-    const dogIcon = document.querySelector('.p-error__icon');
-
-    /**
-     * Section 1: Header Scroll Behavior
-     * Synchronizes the header's visual state with the window's scroll position.
-     */
-    let ticking = false;
-    if (header) {
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                // Optimize scroll event using requestAnimationFrame (60fps).
-                window.requestAnimationFrame(() => {
-                    if (window.scrollY > 50) {
-                        header.classList.add('is-scrolled');
-                    } else {
-                        header.classList.remove('is-scrolled');
-                    }
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        }, { passive: true });
-    }
-
-    /**
-     * Section 2: Viewport Reveal Trigger
-     * Animates the main container into view upon page load.
-     */
     if (errorReveal) {
         setTimeout(() => {
             errorReveal.classList.add('is-active');
@@ -47,131 +22,146 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
-     * Section 3: Easter Egg - Interactive Barking
-     * Triggers a randomized text popup when the dog icon is clicked.
+     * Initializes the keyboard listener for the secret Konami Code sequence.
      */
+    initKonamiCode();
+
+    /** * @type {HTMLElement|null}
+     * The main interactive icon that triggers barking sounds on click.
+     */
+    const dogIcon = document.querySelector('.p-error__icon');
     if (dogIcon) {
         dogIcon.addEventListener('click', (e) => {
-            const barks = ['Woof!', 'Wan!', 'Bow-wow!', 'Arf!', 'Bark!'];
+            /** @type {string[]} List of possible bark strings. */
+            const barks = ['Woof!', 'Wan!', 'Bark!', 'Bow-wow!'];
             const randomBark = barks[Math.floor(Math.random() * barks.length)];
             createBarkPopup(e.clientX, e.clientY, randomBark);
         });
     }
 
-    /**
-     * Creates a transient bark popup element at specific screen coordinates.
-     * @param {number} x Horizontal coordinate (px).
-     * @param {number} y Vertical coordinate (px).
-     * @param {string} text The bark text to display.
+    /** * @type {HTMLElement|null}
+     * Footer icon used as a manual trigger for the special bone rain effect.
      */
-    function createBarkPopup(x, y, text) {
-        const popup = document.createElement('div');
-        popup.className = 'c-bark-popup';
-        popup.innerText = text;
-        
-        // Add randomization to the final popup position for a dynamic feel.
-        const offsetX = (Math.random() - 0.5) * 100;
-        const offsetY = (Math.random() - 0.5) * 50;
-        
-        popup.style.left = `${x + offsetX}px`;
-        popup.style.top = `${y + offsetY}px`;
-        
-        document.body.appendChild(popup);
-
-        // Lifecycle: Remove DOM element after animation completion (0.8s).
-        setTimeout(() => popup.remove(), 800);
-    }
-
-    /**
-     * Section 4: Easter Egg - Bone Rain Trigger
-     * Visual effect involving background watermark change and particle animation.
-     */
+    const eggTrigger = document.getElementById('easter-egg-trigger');
     if (eggTrigger) {
         eggTrigger.addEventListener('click', (e) => {
             e.preventDefault();
-            
-            // Visual feedback on the background watermark.
-            if (watermark) {
-                const originalText = watermark.innerText;
-                watermark.innerText = "WOOF!";
-                watermark.classList.add('is-super');
-                
-                setTimeout(() => {
-                    watermark.innerText = originalText;
-                    watermark.classList.remove('is-super');
-                }, 3000);
-            }
-
-            // Generate particles.
-            for (let i = 0; i < 20; i++) {
-                setTimeout(createFallingBone, i * 50);
-            }
+            triggerSpecialEffect("WOOF!");
         });
     }
+});
 
-    /**
-     * Injects a falling bone element into the DOM with randomized physics.
-     */
-    function createFallingBone() {
-        const bone = document.createElement('i');
-        bone.className = 'fa-solid fa-bone c-falling-bone';
-        
-        const startLeft = Math.random() * window.innerWidth;
-        const duration = 2 + Math.random() * 3;
-        const size = 1.0 + Math.random() * 2;
-        
-        bone.style.left = `${startLeft}px`;
-        bone.style.animationDuration = `${duration}s`;
-        bone.style.fontSize = `${size}rem`;
-        
-        document.body.appendChild(bone);
-
-        // Memory Cleanup: Remove element after it exits the viewport.
-        setTimeout(() => bone.remove(), duration * 1000);
-    }
-
-    /**
-     * Section 5: Easter Egg - Konami Code Integration
-     * Sequence: Up, Up, Down, Down, Left, Right, Left, Right, B, A.
-     */
-    const konamiCode = [
-        'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 
-        'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 
-        'b', 'a'
+/**
+ * Monitors physical key presses to detect the Konami Code sequence.
+ * Uses KeyboardEvent.code to ensure reliability across different input methods (IME).
+ * Sequence: Up, Up, Down, Down, Left, Right, Left, Right, B, A.
+ * @returns {void}
+ */
+function initKonamiCode() {
+    /** @const {string[]} Expected physical key code sequence. */
+    const konamiSequence = [
+        'ArrowUp', 'ArrowUp', 
+        'ArrowDown', 'ArrowDown', 
+        'ArrowLeft', 'ArrowRight', 
+        'ArrowLeft', 'ArrowRight', 
+        'KeyB', 'KeyA'
     ];
-    let konamiIndex = 0;
+    
+    /** @type {number} Current progress index in the sequence. */
+    let index = 0;
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === konamiCode[konamiIndex]) {
-            konamiIndex++;
-            if (konamiIndex === konamiCode.length) {
-                activateSuperShiba();
-                konamiIndex = 0;
+        // Validation based on physical key location to bypass IME issues.
+        if (e.code === konamiSequence[index]) {
+            index++;
+            if (index === konamiSequence.length) {
+                triggerSpecialEffect("SUPER SHIBA");
+                index = 0;
             }
         } else {
-            konamiIndex = 0; // Reset on error.
+            // Reset sequence unless a modifier key (Shift/Ctrl/Alt) is pressed.
+            if (!['ShiftLeft', 'ShiftRight', 'ControlLeft', 'AltLeft'].includes(e.code)) {
+                index = 0;
+            }
         }
     });
+}
 
-    /**
-     * Activates the "Super Shiba" visual state.
-     * Changes watermark text and triggers a major bone rain event.
-     */
-    function activateSuperShiba() {
-        if (watermark) {
-            watermark.innerText = "SUPER SHIBA";
-            watermark.classList.add('is-super');
-            
-            // Heavy bone rain event.
-            for (let i = 0; i < 50; i++) {
-                setTimeout(createFallingBone, i * 50);
-            }
-            
-            // Revert state after 10 seconds.
-            setTimeout(() => {
-                watermark.innerText = "404";
-                watermark.classList.remove('is-super');
-            }, 10000);
-        }
+/**
+ * Triggers a multi-stage visual easter egg.
+ * Changes the background watermark text and initiates a "Bone Rain" particle effect.
+ * @param {string} text - The temporary string to display in the watermark.
+ * @returns {void}
+ */
+function triggerSpecialEffect(text) {
+    /** @type {HTMLElement|null} */
+    const watermark = document.getElementById('watermark');
+    if (watermark) {
+        const original = watermark.innerText;
+        watermark.innerText = text;
+        watermark.classList.add('is-super');
+        
+        // Restore original watermark after 5 seconds.
+        setTimeout(() => {
+            watermark.innerText = original;
+            watermark.classList.remove('is-super');
+        }, 5000);
     }
-});
+
+    // Sequence bone generation to create a "rain" flow.
+    for (let i = 0; i < 35; i++) {
+        setTimeout(createFallingBone, i * 120);
+    }
+}
+
+/**
+ * Creates and animates a single falling bone icon.
+ * Randomizes position, fall duration, and font size for a dynamic 3D feel.
+ * @returns {void}
+ */
+function createFallingBone() {
+    const bone = document.createElement('i');
+    bone.className = 'fa-solid fa-bone c-falling-bone';
+    bone.setAttribute('aria-hidden', 'true'); // Hide from screen readers.
+    
+    // Randomized horizontal entry point.
+    bone.style.left = `${Math.random() * 100}vw`;
+    
+    // Randomized fall speed (2s to 4s).
+    const duration = Math.random() * 2 + 2;
+    bone.style.animationDuration = `${duration}s`;
+    
+    // Randomized size (1rem to 3.5rem) to simulate depth.
+    const size = 1 + Math.random() * 2.5;
+    bone.style.fontSize = `${size}rem`;
+    
+    document.body.appendChild(bone);
+    
+    // Memory Cleanup: Remove DOM element after animation completes.
+    setTimeout(() => bone.remove(), duration * 1000);
+}
+
+/**
+ * Generates a barking text popup at a specific coordinate with a random offset.
+ * @param {number} x - The horizontal click coordinate.
+ * @param {number} y - The vertical click coordinate.
+ * @param {string} text - The bark message to display.
+ * @returns {void}
+ */
+function createBarkPopup(x, y, text) {
+    const popup = document.createElement('div');
+    popup.className = 'c-bark-popup';
+    popup.innerText = text;
+    
+    // Calculate randomized offset to prevent popups from stacking perfectly.
+    const offsetX = (Math.random() - 0.5) * 120;
+    const offsetY = (Math.random() - 0.5) * 60;
+    
+    popup.style.left = `${x + offsetX}px`;
+    popup.style.top = `${y + offsetY}px`;
+    
+    document.body.appendChild(popup);
+    
+    // Cleanup popup after animation duration.
+    setTimeout(() => popup.remove(), 800);
+}
