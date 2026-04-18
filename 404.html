@@ -1,0 +1,68 @@
+<!-- 
+  @file 404 Error Page Template for Kotaro the Shiba.
+  Maintains brand consistency while providing playful feedback and easter eggs.
+  Developed by: @kotaharus 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Page Not Found | Kotaro the Shiba</title>
+
+    <!-- FONTS & ASSETS: Typography and Iconography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS ARCHITECTURE: Base styles and error-specific encapsulation -->
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/404.css">
+
+    <!-- SEO & BRANDING: Theme configuration for mobile browsers -->
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#e67e22">
+</head>
+<body class="l-body-column">
+
+    <!-- HEADER COMPONENT: Synchronized navigation with home page -->
+    <header class="c-header" id="main-header"></header>
+
+    <main class="p-error">   
+        <!-- Background Decoration: Semantic watermark for error context -->
+        <div class="p-error__watermark" id="watermark">404</div>
+
+        <div class="p-error__container u-reveal" id="error-reveal">
+            <div class="p-error__icon-wrapper">
+                <i class="fas fa-paw p-error__icon"></i>
+            </div>
+            <h1 class="p-error__title">Woof! Page Not Found</h1>
+            <p class="p-error__description">
+                <i>*Sniff Sniff*</i>... Kotaro has searched the entire house, <br>
+                but he couldn't find the page you were looking for.
+            </p>
+            <div class="p-error__actions">
+                <a href="index.html" class="c-button">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+                <a href="index.html#contact" class="c-button c-button--outline">
+                    <i class="fas fa-envelope"></i> Report to Owner
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER COMPONENT: Standardized branding and secret interaction trigger -->
+  <footer class="c-footer" id="main-footer"></footer>
+
+    <!-- EXTERNAL LOGIC LAYER: Error-specific interactions and animations -->
+    <script type="module" src="js/404.js"></script>
+</body>
+</html>

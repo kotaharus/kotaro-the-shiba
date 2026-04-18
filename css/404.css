@@ -1,0 +1,205 @@
+/**
+ * @fileoverview 404 Error Page Specific Styles.
+ * Encapsulated within the .p-error scope to prevent style collisions with the main site.
+ * Developed by: @kotaharus
+ */
+
+.l-body-column {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   BLOCK: p-error (Main Layout Container)
+   Handles centering and background aesthetics for the error state.
+   ========================================================================== */
+.p-error {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: var(--header-height);
+    background-color: var(--bg-light);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Element: Background Watermark 
+   Large 404 text behind content for context. */
+.p-error__watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(10rem, 30vw, 22rem);
+    font-weight: 700;
+    color: var(--primary-color);
+    opacity: 0.10;
+    user-select: none;
+    z-index: 0;
+    line-height: 1;
+    transition: var(--transition);
+}
+
+/* Modifier: Super Shiba Mode
+   Rainbow animation triggered by Konami code or secret clicks. */
+.p-error__watermark.is-super {
+    animation: a-rainbow 2s linear infinite;
+    opacity: 0.4;
+}
+
+/* Element: Container
+   Main content wrapper. */
+.p-error__container {
+    position: relative;
+    z-index: 10;
+    padding: 2rem;
+    max-width: 700px;
+}
+
+/* Element: Dog Icon
+   Animated paw icon acting as the focal point. */
+.p-error__icon-wrapper {
+    margin-bottom: 1.5rem;
+}
+
+.p-error__icon {
+    font-size: 4.5rem;
+    color: var(--primary-color);
+    display: inline-block;
+    animation: a-bark 3s infinite ease-in-out;
+    cursor: help;
+}
+
+/* Element: Typography
+   Headings and descriptive text. */
+.p-error__title {
+    font-size: clamp(2.5rem, 7vw, 4rem);
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.p-error__description {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+/* Element: Action Buttons */
+.p-error__actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.p-error__actions i {
+    margin-right: 8px;
+}
+
+/**
+ * Hide specific navigation elements for the 404 page 
+ * to maintain contextual relevance.
+ */
+.js-nav-bone {
+  display: none !important;
+}
+
+/* ==========================================================================
+   EASTER EGG ELEMENTS
+   Hidden interactive elements for user delight.
+   ========================================================================== */
+
+/* Trigger: Footer Bone Icon */
+.p-error__easter-egg-trigger {
+    display: inline-block;
+    margin-left: 8px;
+    color: var(--primary-color);
+    opacity: 0.4;
+    transition: var(--transition);
+    cursor: help;
+    text-decoration: none;
+}
+
+.p-error__easter-egg-trigger:hover {
+    opacity: 1;
+    transform: scale(1.4) rotate(15deg);
+}
+
+/* Component: Bark Popup
+   Dynamic text generated via JavaScript on clicking the dog icon. */
+.c-bark-popup {
+    position: absolute;
+    background: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    font-weight: 700;
+    color: var(--primary-color);
+    pointer-events: none;
+    z-index: 100;
+    animation: a-bark-up 0.8s ease-out forwards;
+    border: 2px solid var(--primary-color);
+}
+
+/* Component: Falling Bone 
+   Particle effect triggered by easter eggs. */
+.c-falling-bone {
+    position: fixed;
+    top: -50px;
+    z-index: 100;
+    user-select: none;
+    pointer-events: none;
+    animation: a-fall linear forwards;
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   KEYFRAME ANIMATIONS
+   ========================================================================== */
+
+/* Popup bounce effect */
+@keyframes a-bark-up {
+    0% { opacity: 0; transform: translateY(0) scale(0.5); }
+    20% { opacity: 1; transform: translateY(-20px) scale(1.2); }
+    100% { opacity: 0; transform: translateY(-60px) scale(1); }
+}
+
+/* Bone physics simulation */
+@keyframes a-fall {
+    to { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* Idle dog animation */
+@keyframes a-bark {
+    0%, 100% { transform: scale(1) rotate(0); }
+    10%, 20% { transform: scale(1.1) rotate(-10deg); }
+    15% { transform: scale(1.1) rotate(10deg); }
+    30% { transform: scale(1) rotate(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Rainbow color cycle */
+@keyframes a-rainbow {
+    0% { color: #ff0000; filter: hue-rotate(0deg); }
+    100% { color: #ff0000; filter: hue-rotate(360deg); }
+}
+
+/* ==========================================================================
+   RESPONSIVE OVERRIDES
+   ========================================================================== */
+@media (max-width: 768px) {
+    .p-error__actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .p-error__actions .c-button {
+        width: 100%;
+    }
+}

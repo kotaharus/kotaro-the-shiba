@@ -1,0 +1,26 @@
+# --- Dependencies ---
+# Third-party packages installed via npm
+node_modules/
+
+# --- Environment & Secrets ---
+# Sensitive configuration and local environment variables
+.env
+*.log
+
+# --- Editor & OS ---
+# Editor-specific settings
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# --- Build & Tooling ---
+# Cache files for build tools and linters
+.eslintcache

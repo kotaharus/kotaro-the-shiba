@@ -1,0 +1,184 @@
+<!--
+  @file Kotaro the Shiba Portfolio - Main Landing Page.
+  Architecture: Follows a component-based structure using BEM naming conventions.
+  Developed by: @kotaharus
+-->
+<!DOCTYPE html>
+<html lang="en"> <!-- Optimized for international accessibility and content consistency -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kotaro the Shiba | Portfolio</title>
+
+  <!-- FONTS & EXTERNAL ASSETS: Loading typography from Google Fonts and Icons from FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS ARCHITECTURE: Main stylesheet implementing a robust design system -->
+  <link rel="stylesheet" href="css/master.css">
+
+  <!-- SEO & BRANDING: Theme configuration for mobile browsers -->
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#e67e22">
+</head>
+
+<body>
+
+  <!-- HEADER COMPONENT: Sticky navigation with reactive background blur and scroll effects -->
+  <header class="c-header" id="main-header"></header>
+
+  <main>
+    <!-- HERO SECTION: Primary landing view with "digital frisbee" easter egg link -->
+    <section id="home" class="p-hero">
+      <div class="p-hero__content">
+        <h1 class="p-hero__title">Kotaro the Shiba</h1>
+        <p class="p-hero__subtitle">
+          Sniffing out clean code and chasing 
+          <!-- Easter Egg: Hidden navigational link within text for high-intent explorers -->
+          <a href="404.html" class="p-hero__link-hidden" aria-label="Easter Egg: Navigate to 404 Page">digital frisbees</a>
+        </p>
+        <a href="#gallery" class="c-button">View My Works</a>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION: Brand storytelling and core profile introduction -->
+    <section id="about" class="l-section u-reveal">
+      <div class="l-container">
+        <div class="c-section-title">
+          <h2 class="c-section-title__heading">About Me</h2>
+          <p class="c-section-title__subtext">My Origins & Daily Missions</p>
+        </div>
+        <div class="p-about-grid">
+          <div class="p-about-grid__image">
+            <img src="img/about.webp" alt="Kotaro Profile" class="p-about-grid__img" loading="lazy">
+          </div>
+          <div class="p-about-grid__text">
+            <h3 class="p-about-grid__greeting">Hello, I'm Kotaro.</h3>
+            <p class="p-about-grid__paragraph">I grew up alongside a software engineer, developing a keen ear for the rhythm of mechanical keyboards. My career is built on a foundation of "Fast response times (treat-based)" and "Flawless debugging (sock retrieval)."</p>
+            <p class="p-about-grid__paragraph">This portfolio showcases the technical mastery my owner has developed in HTML, CSS, and JavaScript. While the interface is friendly, the underlying architecture is robust and built for performance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION: Visualization of technical proficiency using Intersection Observer animations -->
+    <section id="skills" class="l-section l-section--zebra u-reveal">
+      <div class="l-container">
+        <div class="c-section-title">
+          <h2 class="c-section-title__heading">Core Skills</h2>
+        </div>
+        <div class="p-skills-container">
+          <div class="c-skill-card">
+            <div class="c-skill-card__header">
+              <span class="c-skill-card__label">Loyalty & Auth</span>
+              <span class="c-skill-card__value">100%</span>
+            </div>
+            <div class="c-progress">
+              <div class="c-progress__fill" data-percent="100%"></div>
+            </div>
+            <p class="c-skill-card__desc">Instantly rejects mock treats (fake data). Authenticates real meat with high precision.</p>
+          </div>
+
+          <div class="c-skill-card">
+            <div class="c-skill-card__header">
+              <span class="c-skill-card__label">Route Optimization</span>
+              <span class="c-skill-card__value">90%</span>
+            </div>
+            <div class="c-progress">
+              <div class="c-progress__fill" data-percent="90%"></div>
+            </div>
+            <p class="c-skill-card__desc">Advanced pathfinding for discovering the most efficient route to the park.</p>
+          </div>
+
+          <div class="c-skill-card">
+            <div class="c-skill-card__header">
+              <span class="c-skill-card__label">Nap Optimization</span>
+              <span class="c-skill-card__value">85%</span>
+            </div>
+            <div class="c-progress">
+              <div class="c-progress__fill" data-percent="85%"></div>
+            </div>
+            <p class="c-skill-card__desc">Detects optimal locations based on sunbeam intensity and floor temperature.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORKS GALLERY: Showcase of representative projects in a responsive grid layout -->
+    <section id="gallery" class="l-section u-reveal">
+      <div class="l-container">
+        <div class="c-section-title">
+          <h2 class="c-section-title__heading">Work Samples</h2>
+          <p class="c-section-title__subtext">Proven Results in Bark-end Development</p>
+        </div>
+        <div class="p-gallery-grid">
+          <a href="404.html" class="c-gallery-item">
+            <img src="img/gallery1.webp" alt="Dual Node Sync" class="c-gallery-item__img" loading="lazy">
+            <div class="c-gallery-item__overlay">
+              <i class="fa-solid fa-bone c-gallery-item__icon"></i>
+              <p class="c-gallery-item__label">Dual Node Sync</p>
+            </div>
+          </a>
+          <a href="404.html" class="c-gallery-item">
+            <img src="img/gallery2.webp" alt="Strict Conflict Resolution" class="c-gallery-item__img" loading="lazy">
+            <div class="c-gallery-item__overlay">
+              <i class="fa-solid fa-bowl-food c-gallery-item__icon"></i>
+              <p class="c-gallery-item__label">Strict Conflict Resolution</p>
+            </div>
+          </a>
+          <a href="404.html" class="c-gallery-item">
+            <img src="img/gallery3.webp" alt="Peer Onboarding" class="c-gallery-item__img" loading="lazy">
+            <div class="c-gallery-item__overlay">
+              <i class="fa-solid fa-paw c-gallery-item__icon"></i>
+              <p class="c-gallery-item__label">Recursive Peer Onboarding</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION: Lead generation with custom Bézier path footprint animation logic -->
+    <section id="contact" class="l-section l-section--zebra u-reveal">
+      <div class="l-container">
+        <div class="c-section-title">
+          <h2 class="c-section-title__heading">Contact</h2>
+          <p class="c-section-title__subtext">For Pats, Belly Rubs & Inquiries</p>
+        </div>
+        <div class="p-contact-content">
+          <div class="p-contact-content__info">
+            <h3 class="p-contact-content__title">Let's Wag Our Tails!</h3>
+            <p class="p-contact-content__desc">Always open for new adventures, outdoor collaborations, or high-steak recruitment offers.</p>
+            <div class="p-contact-content__details">
+              <p class="p-contact-content__item"><i class="fas fa-envelope"></i> kotaro@shiba.dog</p>
+              <p class="p-contact-content__item"><i class="fas fa-map-marker-alt"></i> Somewhere in a sunny garden, Japan</p>
+            </div>
+          </div>
+          <form class="c-form">
+            <label for="contact-name" class="u-visually-hidden">Your Name</label>
+            <input type="text" id="contact-name" class="c-form__input" placeholder="Kotaro" required>
+            <label for="contact-email" class="u-visually-hidden">Email Address</label>
+            <input type="email" id="contact-email" class="c-form__input" placeholder="kotaro@shiba.dog" required>
+            <label for="contact-message" class="u-visually-hidden">Message</label>
+            <textarea id="contact-message" class="c-form__textarea" rows="5" placeholder="Message" required></textarea>
+            <button type="submit" class="c-button c-button--submit">Send a Woof!</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- GLOBAL FOOTER: Standardized legal credits and ownership information -->
+  <footer class="c-footer" id="main-footer"></footer>
+
+  <!-- CORE LOGIC: Deferred script loading for optimized Time to Interactive (TTI) and performance metrics -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
