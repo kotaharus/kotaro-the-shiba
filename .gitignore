@@ -1,7 +1,6 @@
 # --- Dependencies ---
 # Third-party packages installed via npm
 node_modules/
-package-lock.json
 
 # --- Environment & Secrets ---
 # Sensitive configuration and local environment variables
