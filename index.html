@@ -58,7 +58,7 @@
         <p class="p-hero__subtitle">
           Sniffing out clean code and chasing 
           <!-- Easter Egg: Hidden navigational link within text for high-intent explorers -->
-          <a href="404.html" class="p-hero__link-hidden">digital frisbees</a>.
+          <a href="404.html" class="p-hero__link-hidden" aria-label="Easter Egg: Navigate to 404 Page">digital frisbees</a>
         </p>
         <a href="#gallery" class="c-button">View My Works</a>
       </div>
@@ -177,9 +177,12 @@
             </div>
           </div>
           <form class="c-form">
-            <input type="text" class="c-form__input" placeholder="Your Name" required>
-            <input type="email" class="c-form__input" placeholder="Email Address" required>
-            <textarea class="c-form__textarea" rows="5" placeholder="Message" required></textarea>
+            <label for="contact-name" class="u-visually-hidden">Your Name</label>
+            <input type="text" id="contact-name" class="c-form__input" placeholder="Kotaro" required>
+            <label for="contact-email" class="u-visually-hidden">Email Address</label>
+            <input type="email" id="contact-email" class="c-form__input" placeholder="kotaro@shiba.dog" required>
+            <label for="contact-message" class="u-visually-hidden">Message</label>
+            <textarea id="contact-message" class="c-form__textarea" rows="5" placeholder="Message" required></textarea>
             <button type="submit" class="c-button c-button--submit">Send a Woof!</button>
           </form>
         </div>
